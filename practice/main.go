@@ -181,6 +181,10 @@ func (c circle) circumference() float64 {
     return 2 * math.Pi * c.r
 }
 
+func (c circle) diameter() float64 {
+    return 2 * c.r
+}
+
 
 /* func doubleIt(num *int) {
     fmt.Println(num)
