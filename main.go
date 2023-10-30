@@ -2,6 +2,7 @@ package main
 
 import(
     "fmt"
+    "math"
 )
 
 func main() {
@@ -101,7 +102,8 @@ func main() {
         fmt.Printf("%v, %T\n", families[i], families[i])
     } */
 
-
+        c1 := circle{5}
+        interfaceFunc(c1)
 
 }
 
@@ -114,8 +116,8 @@ func interfaceFunc (i shape) {
 }
 
 type shape interface {
-    area() int
-    circumference() int
+    area() float64
+    circumference() float64
 }
 
 /* func showFamily() []family {
@@ -151,21 +153,34 @@ type family struct {
 } */
 
 type Rectangle struct {
-    a int
-    b int
+    a float64
+    b float64
 }
 
 func (r Rectangle) display() {
     fmt.Println("Kenar uzunlukları: ", r.a, r.b, " olan dikdörtgen")
 }
 
-func (r Rectangle) area() int {
+func (r Rectangle) area() float64 {
     return r.a*r.b
 }
 
-func (r Rectangle) circumference() int {
+func (r Rectangle) circumference() float64 {
     return r.a * 2 + r.b * 2 
 } 
+
+type circle struct {
+    r float64
+}
+
+func (c circle) area() float64 {
+    return math.Pi * c.r * c.r
+}
+
+func (c circle) circumference() float64 {
+    return 2 * math.Pi * c.r
+}
+
 
 /* func doubleIt(num *int) {
     fmt.Println(num)
