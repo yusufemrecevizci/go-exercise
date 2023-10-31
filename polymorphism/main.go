@@ -34,8 +34,8 @@ func (s square) area() float64 {
 	return s.a * s.a
 }
 
-func printArea(shapes ...shape){
-	for _, shape := range shapes{
+func printArea(shapes ...shape) {
+	for _, shape := range shapes {
 		fmt.Println("Alan : ", shape.area())
 	}
 }
@@ -44,6 +44,6 @@ func main() {
 	t := triangle{3, 4}
 	s := square{4}
 	r := rectangle{4, 6}
+	printArea(t, s, r)
 
-	printArea(t,s,r)
 }
